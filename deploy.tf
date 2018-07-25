@@ -15,17 +15,6 @@ resource "aws_s3_bucket" "static_site" {
   website {
     index_document = "index.html"
     error_document = "error.html"
-
-    routing_rules = <<EOF
-[{
-    "Condition": {
-        "KeyPrefixEquals": "/"
-    },
-    "Redirect": {
-        "ReplaceKeyPrefixWith": "error.html"
-    }
-}]
-EOF
   }
 }
 
