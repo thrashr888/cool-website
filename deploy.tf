@@ -1,5 +1,11 @@
+variable "aws_access_key" {}
+variable "aws_secret_key" {}
+variable "aws_default_region" {}
+
 provider "aws" {
-  region = "us-east-1"
+  access_key = "${var.aws_access_key}"
+  secret_key = "${var.aws_secret_key}"
+  region     = "${var.aws_default_region}"
 }
 
 resource "aws_s3_bucket" "static_site" {
