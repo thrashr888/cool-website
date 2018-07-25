@@ -13,7 +13,8 @@ resource "aws_s3_bucket" "static_site" {
   acl    = "public-read"
 
   website {
-    index_document = "indx.html"
+    // DO NOT CHANGE THESE
+    index_document = "index.html"
     error_document = "error.html"
   }
 }
