@@ -14,7 +14,7 @@ resource "aws_s3_bucket" "static_site" {
 
   website {
     // DO NOT CHANGE THESE
-    index_document = "indx.html"
+    index_document = "index.html"
     error_document = "error.html"
   }
 }
