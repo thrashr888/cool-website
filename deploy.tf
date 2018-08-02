@@ -8,35 +8,13 @@ provider "aws" {
   region     = "${var.aws_default_region}"
 }
 
-resource "aws_s3_bucket" "static_site" {
-  bucket = "cool-website"
-  acl    = "public-read"
+module "s3-website" {
+  source  = "thrashr888/s3-website/aws"
+  version = "0.2.0"
 
-  website {
-    // DO NOT CHANGE THESE, PLEASE
-    index_document = "index.html"
-    error_document = "error.html"
-  }
+  bucket_name = "cool-website"
 }
 
-resource "aws_s3_bucket_object" "index" {
-  bucket       = "${aws_s3_bucket.static_site.bucket}"
-  key          = "index.html"
-  source       = "index.html"
-  content_type = "text/html"
-  etag         = "${md5(file("index.html"))}"
-  acl          = "public-read"
-}
-
-resource "aws_s3_bucket_object" "error" {
-  bucket       = "${aws_s3_bucket.static_site.bucket}"
-  key          = "error.html"
-  source       = "error.html"
-  content_type = "text/html"
-  etag         = "${md5(file("error.html"))}"
-  acl          = "public-read"
-}
-
-output "website" {
-  value = "${aws_s3_bucket.static_site.website_endpoint}"
+output "website_endpoint" {
+  value = "${module.s3-website.website_endpoint}"
 }
