@@ -1,4 +1,6 @@
-provider "aws" {}
+provider "aws" {
+  region = "us-east-1"
+}
 
 module "s3-website" {
   source  = "thrashr888/s3-website/aws"
@@ -9,5 +11,5 @@ module "s3-website" {
 
 output "website_endpoint" {
   description = "The public url of our cool website."
-  value = "${module.s3-website.website_endpoint}"
+  value = module.s3-website.website_endpoint
 }
