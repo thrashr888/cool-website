@@ -9,4 +9,4 @@ It deploys using Terraform.
     > terraform plan
     > terraform apply
 
-But... just push the code and use TFE to deploy. Workspace name is `pthrasher_v2/cool-website`.
+But... just push the code and use TFC to deploy. Workspace name is `pthrasher_v2/cool-website`.
