@@ -10,6 +10,6 @@ module "s3-website" {
 }
 
 output "website_endpoint" {
-  description = "The public url of our cool website."
+  description = "The public url of our cool website"
   value = module.s3-website.website_endpoint
 }
