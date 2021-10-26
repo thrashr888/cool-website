@@ -1,6 +1,6 @@
 # My Cool 😎 Website
 
-It's really the ~best~ coolest website. I hope it doesn't crash.
+It's really the ~best~ & coolest website. I hope it doesn't crash.
 
 ## Deploy
 
