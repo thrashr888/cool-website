@@ -11,7 +11,7 @@ module "s3-website" {
   
 module "s3_bucket" {
   source = "terraform-aws-modules/s3-bucket/aws"
-  create_bucket = false
+  create_bucket = true
 
   bucket = "cool-website-module"
   acl    = "private"
