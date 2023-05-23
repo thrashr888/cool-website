@@ -8,6 +8,21 @@ module "s3-website" {
 
   bucket_name = "cool-website"
 }
+  
+module "s3_bucket" {
+  source = "terraform-aws-modules/s3-bucket/aws"
+  create_bucket = false
+
+  bucket = "cool-website-module"
+  acl    = "private"
+
+  control_object_ownership = true
+  object_ownership         = "ObjectWriter"
+
+  versioning = {
+    enabled = false
+  }
+}
 
 output "website_endpoint" {
   description = "The public url of our cool website"
